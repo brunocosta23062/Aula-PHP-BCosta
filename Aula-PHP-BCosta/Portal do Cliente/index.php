@@ -23,7 +23,7 @@
 
             //iniciou a cessao de logado e enviou para a tela de login
             $_SESSION['logado'] = TRUE;
-            header("location: indexaqui/home.php");
+            header("location: projeto/home.php");
 
 
          }else{
@@ -44,7 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="indexaqui/estilo_projeto2.css">
+    <link rel="stylesheet" href="projeto/estilo_projeto.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>Aula 6</title>

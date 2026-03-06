@@ -1,3 +1,15 @@
+<?php
+
+  session_start();
+  //Verifica se o usuario esta logado e o manda de volta para o arquivo de login caso não esteja
+  if($_SESSION['logado'] == FALSE){
+
+    echo "<script> alert('Por favor, faça o login'); window.location.href='../index.php'; </script>";
+
+  }
+
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -23,7 +35,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h1 id="texto1" style="text-align: center;margin-top: 2%;margin-bottom: 5%">Editar Livros</h1>                
+                    <h1 id="texto1" style="text-align: center;margin-top: 2%;margin-bottom: 5%">Cadastrar Livros</h1>                
                 </div>
             </div>     
             
@@ -52,16 +64,21 @@
            
         <div class="row" style="text-align: center;margin-top: 2%;">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary" style="width: 100%;text-align: center;" name="enviar">enviar</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;text-align: center;margin-bottom: 3%;" name="enviar">enviar</button>
                 </div>
         </div>
        </form>
-    </div>
+        <div>
+        <?php
+
+                require "../includes/rodape.php";
+
+            ?>
+        </div>
+</div>
 
 
-
-
-
+   
 
 
 

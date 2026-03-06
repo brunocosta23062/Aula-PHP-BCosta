@@ -1,0 +1,12 @@
+<div style="width: 100%; height: 100px; background-color: gray;"> 
+
+    <div class="row">
+        <div>
+
+            <h3 style="text-align: center; padding-top: 25px;">Seus livros estão seguros aqui!</h3>
+
+        </div>
+
+    </div>
+
+</div>

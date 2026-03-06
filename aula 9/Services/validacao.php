@@ -1,7 +1,7 @@
 <?php
 
-    require "../Model/livros.php";
-    require "../controle/Action_SQL.php";
+    require "../Model/Livros.php";
+    require "../Controller/Action_SQL.php";
 
     $novo_livros = new Livros;
     $nova_insercao = new Action_SQL;

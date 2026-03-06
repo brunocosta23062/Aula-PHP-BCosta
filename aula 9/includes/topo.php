@@ -1,50 +1,18 @@
-   
-<div>   
-    <div>    
-        <div>  
-            <ul class="nav nav-tabs justify-content-center">
-                <div class="nav-item">
-                    <a class="nav-link active"  href="../view/home.php">Home</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="../view/cadastrar.php">cadastro</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="">informações</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="../Services/sair.php">Sair</a>
-                </div>
-            </ul>   
-        </div>
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div>
     
-  
-
-  </body>
-</html>
+    <ul class="nav nav-tabs nav justify-content-center">
+        <div class="nav-item">
+            <a class="nav-link active" href="../View/home.php">HOME</a>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link" href="../View/cadastrar.php">Cadastro</a>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link" href="">Informações</a>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link" onclick="return confirm('Tem certeza que deseja sair?')" href="../Services/sair_action.php">Sair</a>
+        </div>
+    </ul>
+         
+</div>

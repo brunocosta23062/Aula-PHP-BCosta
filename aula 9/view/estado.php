@@ -1,26 +1,10 @@
-
-
-
 <?php
 
-  session_start();
-  //Verifica se o usuario esta logado e o manda de volta para o arquivo de login caso não esteja
-  if($_SESSION['logado'] == FALSE){
-
-    echo "<script> alert('Por favor, faça o login'); window.location.href='../index.php'; </script>";
-
-  }
-
-?>
-<?php
-
-    
-    require "../Controller/Action_SQL.php";
+    require "../Controller/Action_SQL_PEC.php";
 
     //Instrução selecionar
-    $nova_selecao = new Action_SQL;
-    $resultado = $nova_selecao->selecionar();    
-
+    $nova_selecao = new Action_SQL_PEC;
+    $resultado = $nova_selecao->selecionar_PEC("estado");
 
 ?>
 
@@ -45,16 +29,29 @@
         require "../Includes/topo.php";
     ?>
 
-    <h1 style="margin-bottom: 3%; margin-top: 3%; text-align: center;"> Livros cadastrados</h1>
+    <h1 style="margin-bottom: 3%; margin-top: 3%; text-align: center;"> Estados cadastradas</h1>
+
+    <form action="../Services/validar_cadastro_PEC.php" method="post">
+
+        <input type="hidden" name="PEC_ENVIADO" value="estado">
+        <div class="row" style="margin-bottom: 3%;">
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-text" style="background-color: cadetblue; color: white;">Estado: </span>
+                    <input type="text" class="form-control" name="nome" placeholder="Informe a estado aqui">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" name="enviar" class="btn btn-primary">Cadastrar estado</button>
+            </div>
+        </div>
+    </form>
 
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Quantidade de folhas</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
@@ -65,12 +62,9 @@
             <tr>
                 <td> <?= $row['id']; ?> </td>
                 <td> <?= $row['nome']; ?> </td>
-                <td> <?= $row['descricao']; ?> </td>
-                <td> <?= $row['genero']; ?> </td>
-                <td> <?= $row['quantidade']; ?> </td>
                 <td> 
                     <a class="btn btn-primary" href="editar.php?id= <?= $row['id']; ?>" >Editar</a> 
-                    <a class="btn btn-danger" href="../Services/deletar.php?id=<?= $row['id']; ?>" onclick="return confirm('Você tem certeza que quer deletar?')">Deletar</a> 
+                    <a class="btn btn-danger" href="../Services/deletar_PEC.php?id=<?= $row['id']; ?>&PEC_ENVIADO=estado" onclick="return confirm('Você tem certeza que quer deletar?')">Deletar</a> 
                 </td>
             </tr>
 
@@ -78,15 +72,15 @@
         </tbody>
     </table>
 
+    <?php
 
-        <?php
+        require "../Includes/rodape.php";
 
-            require "../includes/rodape.php";
-
-        ?>
+    ?>
 
     </div>
- 
+    
+    
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

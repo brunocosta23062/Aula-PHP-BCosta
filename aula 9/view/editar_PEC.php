@@ -1,6 +1,5 @@
 
 
-
 <?php
 
   session_start();
@@ -14,12 +13,15 @@
 ?>
 <?php
 
-    
-    require "../Controller/Action_SQL.php";
+    require "../Controller/Action_SQL_PEC.php";
 
-    //Instrução selecionar
-    $nova_selecao = new Action_SQL;
-    $resultado = $nova_selecao->selecionar();    
+    //Recebe o id
+    $id = $_GET['id'];
+    $PEC_RECEBIDO = $_GET['PEC_ENVIADO'];
+    //Seleciona as informações via id
+    $nova_selecao = new Action_SQL_PEC;
+    $requisicao = $nova_selecao->selecionar_id_PEC($PEC_RECEBIDO, $id);
+    $resultado = $requisicao->fetch(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -41,52 +43,47 @@
 
     <div class="container">
 
-    <?php
-        require "../Includes/topo.php";
-    ?>
+    <form action="../Services/validar_editar_PEC.php" method="post">
 
-    <h1 style="margin-bottom: 3%; margin-top: 3%; text-align: center;"> Livros cadastrados</h1>
+        <input type="hidden" name="id" value="<?=htmlspecialchars($id)?>">
+        <input type="hidden" name="PEC_ENVIADO" value="<?=htmlspecialchars($PEC_RECEBIDO)?>">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Quantidade de folhas</th>
-                <th scope="col">Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-        <!-- Pega os valores recebidos do SELECT feito e entrega a variavel row --->
-            <?php while($row = $resultado->fetch(PDO::FETCH_ASSOC)) :  ?>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align: center; margin-top: 3%;">Editar <?= $PEC_RECEBIDO ?></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Nome</label>
+                <input type="text" class="form-control" name="nome" value="<?= htmlspecialchars($resultado['nome']) ?>">
+            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-warning" style="width: 100%; margin-top: 3%;" name="editar">Editar</button>
+            </div>
+        </div>
 
-            <tr>
-                <td> <?= $row['id']; ?> </td>
-                <td> <?= $row['nome']; ?> </td>
-                <td> <?= $row['descricao']; ?> </td>
-                <td> <?= $row['genero']; ?> </td>
-                <td> <?= $row['quantidade']; ?> </td>
-                <td> 
-                    <a class="btn btn-primary" href="editar.php?id= <?= $row['id']; ?>" >Editar</a> 
-                    <a class="btn btn-danger" href="../Services/deletar.php?id=<?= $row['id']; ?>" onclick="return confirm('Você tem certeza que quer deletar?')">Deletar</a> 
-                </td>
-            </tr>
-
-            <?php endwhile; ?>
-        </tbody>
-    </table>
-
-
-        <?php
-
-            require "../includes/rodape.php";
-
-        ?>
+    </form>
 
     </div>
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -97,6 +94,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
-
   </body>
 </html>
+
+

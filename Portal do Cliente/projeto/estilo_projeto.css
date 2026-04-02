@@ -1,0 +1,83 @@
+
+/*Topo*/
+#caixaTopo a{
+
+    color:  rgb(0, 0, 0);
+
+}
+
+/*Login*/
+
+#caixalogin{
+
+    background-color: green;
+    text-align: center;
+    color:rgb(0, 0, 0);
+
+}
+#espacamento{
+
+    margin-top: 3%;
+
+}
+#caixalogin button{
+
+    width: 100%;
+
+
+}
+
+
+
+/*Home*/
+#caixaHome{
+
+    background-color: green;
+    text-align: center;
+    color: rgb(0, 0, 0);
+
+}
+
+#tituloHome{
+
+    margin-top: 5%;
+    margin-bottom: 15%;
+
+}
+
+/*Informações*/
+#caixaInfo{
+
+    background-color:  green;
+    text-align: center;
+    color:black;
+
+}
+#corpoInfo{
+
+    margin-top: 5%;
+    margin-bottom: 15%;
+
+}
+
+#caixaFim{
+
+    height: 150px;
+    width: 100%;
+    background-color:  green;
+
+}
+#caixaFim h5{
+
+    padding-top: 50px;
+
+}
+#fundo{
+    background-color:  green;
+
+}
+#texto1{
+    color: rgb(0, 0, 0);
+
+}
+

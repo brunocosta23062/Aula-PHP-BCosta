@@ -1,0 +1,60 @@
+
+/*Topo*/
+#caixaTopo a{
+
+    color: rgb(255, 255, 255);
+
+}
+
+
+/*Home*/
+#caixaHome{
+
+    background-color:gray;
+    text-align: center;
+    color: rgb(0, 0, 0);
+
+}
+
+#tituloHome{
+
+    margin-top: 5%;
+    margin-bottom: 15%;
+
+}
+
+/*Informações*/
+#caixaInfo{
+
+    background-color: gray;
+    text-align: center;
+    color:black;
+
+}
+#corpoInfo{
+
+    margin-top: 5%;
+    margin-bottom: 15%;
+
+}
+
+#caixaFim{
+
+    height: 150px;
+    width: 100%;
+    background-color: gray;
+
+}
+#caixaFim h5{
+
+    padding-top: 50px;
+
+}
+#fundo{
+    background-color: gray;
+
+}
+#texto1{
+    color: black;
+
+}
